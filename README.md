@@ -1,4 +1,4 @@
-# Rancher
+# Installing Rancher on AWS
 Everything you need to deploy a Rancher cluster for managing Kubernetes. Additionally, the **/dashboard** directory assists you in setting up the Kubernetes dashboard and the **/eks** directory provides a walkthrough in setting up an AWS EKS cluster through the Rancher UI.
 
 ![alt text](https://i.imgur.com/3BLM0Tb.jpg "Giddyup!")
