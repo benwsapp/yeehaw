@@ -1,0 +1,17 @@
+---
+
+nodes:
+  - address: $RANCHER00_PUBLIC
+    internal_address: $RANCHER00_PRIVATE
+    user: ubuntu
+    role: [controlplane,worker,etcd]
+  - address: $RANCHER01_PUBLIC
+    internal_address: $RANCHER01_PRIVATE
+    user: ubuntu
+    role: [controlplane,worker,etcd]
+  - address: $RANCHER02_PUBLIC
+    internal_address: $RANCHER02_PRIVATE
+    user: ubuntu
+    role: [controlplane,worker,etcd]
+
+ssh_agent_auth: true

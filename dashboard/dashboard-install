@@ -1,0 +1,23 @@
+#!/bin/sh
+
+set -e
+
+# Set KUBECONFIG
+export KUBECONFIG=$(pwd)/rancher.yml
+
+# Install ClusterRole
+kubectl create -f dashboard-admin.yml
+
+# Search .yml file for cluster
+cluster_url () {
+    grep -r server: --include=*.yml | grep -Po '(?<=\").*?(?=\")'
+}
+
+# Output Kubernetes dashboard address
+
+echo "You can access the cluster's Kubernetes dashboard at:"
+
+echo "$( cluster_url )/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/pod?namespace=cattle-system"
+
+# Cleanup KUBECONFIG
+rm rancher.yml
