@@ -69,9 +69,17 @@ case $ynemail in
 esac
 
 echo "Installing cert-manager"
+
+kubectl apply -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.6/deploy/manifests/00-crds.yaml
+
+sleep 10
+
 helm install stable/cert-manager \
   --name cert-manager \
-  --namespace kube-system
+  --namespace cert-manager \
+  --version v0.6.6
+
+sleep 10
 
 echo "Installing Rancher"
 helm install rancher-stable/rancher \
