@@ -42,4 +42,8 @@ resource "aws_instance" "rancher" {
     Name        = "rancher0${count.index}"
     Environment = "${var.env_name}"
   }
+  root_block_device {
+    volume_size = "200"
+  }
+
 }
